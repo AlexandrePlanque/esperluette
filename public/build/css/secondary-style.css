@@ -144,7 +144,7 @@ i.box-circle-solid{
 	-moz-transition: 0.5s ease-in;
 }
 .top-nav .navbar-nav li .nav-link {
-    color: #fff;
+    color: rgb(80, 78, 78);
     font-size: 14px;
     padding:29px 15px;
     font-weight: 600;
@@ -162,7 +162,7 @@ i.box-circle-solid{
 }
 .top-nav .navbar-brand{
 	font-size: 28px;
-	color: #fff;
+	color: rgb(80, 78, 78);
 	font-family: 'Montserrat', sans-serif;
 }
 .top-nav.light-header{
@@ -415,7 +415,7 @@ i.box-circle-solid{
 	text-transform: capitalize;
 }
 .member-box{
-  width:100%
+  width:100%;
   float:left;
   position:relative;
   overflow:hidden
@@ -757,8 +757,4 @@ ul.social-box li {
 
 .cardUser{
 	margin:10px;
-}
-
-.barSecondary > *{
-	color:gray;
 }
