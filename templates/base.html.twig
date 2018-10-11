@@ -430,7 +430,8 @@
 
 {% block javascripts %}
 {#<!-- Javascript Files  -->#}
-<script  src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+{#<script  src="http://code.jquery.com/jquery-3.2.1.min.js"></script>#}
+<script src="{{ asset('build/js/jquery-3.3.1.js') }}"></script>
 <script src="{{ asset('build/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('build/js/core.js') }}"></script>
 {% endblock %}

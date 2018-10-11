@@ -1,0 +1,17 @@
+.btnForum{
+     padding-right: 0; 
+     padding-left: 0; 
+}
+
+.hidden{
+    display:none!important;
+}
+
+.sujetForum{
+    background-color:red;
+    width:100%
+}
+
+.sujetForum h4{
+     text-align: center;
+}

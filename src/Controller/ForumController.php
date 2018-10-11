@@ -12,6 +12,8 @@ class ForumController extends AbstractController
      */
     public function index()
     {
+        
+        
         return $this->render('forum/index.html.twig', [
             'controller_name' => 'ForumController',
         ]);
