@@ -56,8 +56,9 @@ Forum
             <div class="form-group">
   <label for="comment">Comment:</label>
   <textarea class="form-control" rows="5" id="comment"></textarea>
-            <button class="btn btn-success mt-1">Répondre</button
-            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <button class="btn btn-success mt-1 float-right">Répondre</button
+            <!-- textarea hidden suite à un bug d'affichage indeterminer -->
+            <textarea class="form-control hidden" rows="5" id="comment"></textarea>
     </div>
         </div>
 
@@ -94,23 +95,11 @@ Forum
         </div>
 
       </div>
-      <!-- /.row -->
+      <!-- fin de la row -->
 
     </div>
-    <!-- /.container -->
+    <!-- fin du container -->
 
-
-
-        {#    Fin du content     #}
-
-
-{#    Fin du content general     #}
-
-{#        <div class="forumContent hidden" id="tabEpicerie">CECI EST MON EPICERIE</div>
-        <div class="forumContent hidden" id="tabBar">CECI EST MON BAR</div>
-        <div class="forumContent hidden" id="tabRestaurant">CECI EST MON RESTAURANT</div>#}
-{#  Fin des tabs du forum  #}
-    </div>
 
 <script src="{{ asset('build/js/jquery-3.3.1.js') }}"></script>
 <script src="{{ asset('build/js/message.js') }}"></script>
