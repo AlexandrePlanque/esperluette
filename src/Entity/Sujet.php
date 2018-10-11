@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,7 +24,7 @@ class Sujet
     private $intitule;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $auteur;
@@ -30,7 +32,7 @@ class Sujet
     /**
      * @ORM\Column(type="datetime")
      */
-    private $DateCreation;
+    private $dateCreation;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Forum", inversedBy="sujets")
@@ -42,6 +44,16 @@ class Sujet
      * @ORM\Column(type="string", length=255)
      */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="sujet", orphanRemoval=true)
+     */
+    private $messages;
+
+    public function __construct()
+    {
+        $this->messages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,12 +72,12 @@ class Sujet
         return $this;
     }
 
-    public function getAuteur(): ?Utilisateur
+    public function getAuteur(): ?User
     {
         return $this->auteur;
     }
 
-    public function setAuteur(?Utilisateur $auteur): self
+    public function setAuteur(?User $auteur): self
     {
         $this->auteur = $auteur;
 
@@ -74,12 +86,12 @@ class Sujet
 
     public function getDateCreation(): ?\DateTimeInterface
     {
-        return $this->DateCreation;
+        return $this->dateCreation;
     }
 
     public function setDateCreation(\DateTimeInterface $DateCreation): self
     {
-        $this->DateCreation = $DateCreation;
+        $this->dateCreation = $DateCreation;
 
         return $this;
     }
@@ -104,6 +116,37 @@ class Sujet
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setSujet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            // set the owning side to null (unless already changed)
+            if ($message->getSujet() === $this) {
+                $message->setSujet(null);
+            }
+        }
 
         return $this;
     }

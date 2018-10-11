@@ -129,34 +129,31 @@ Forum
     <!-- /.container -->
 
     <!-- Page Content -->
-{#    <div class="container">#}
+    <div class="container">
+
+
 
     <div class="container-fluid hidden" id="tabFordum">
-        {% for theme in themes %}
-            <div class="forumContent hidden my-4" id="tab{{ theme.theme }}">
-                <p>testestest</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Titreeeeeeee</td>
-                            <td>Auteur</td>
-                            <td>Date de publication</td>
-                        </tr>
-                    </thead>
-                {% for sujet in theme.sujets %}
-                    <tr id="{{ sujet.id }}">
-                        <td>{{ sujet.intitule }}</td><td>{{ sujet.auteur.nom }} {{ sujet.auteur.prenom}}</td><td>{{sujet.dateCreation|date("m/d/Y") }}</td>
-                    </tr>
+            <div class="forumContent  my-4">
+
+                {% for message in sujet.messages %}
+                    <div class="card">
+                      <div class="card-body">
+                      <h7 class="card-title">Card title</h8>
+                        This is some text within a card body.
+                      </div>
+                    </div>
                 {% endfor %}  
-                </table>
+
             </div>
-        {% endfor %}  
+
     </div>
 
         {#    Fin du content     #}
- 
+
+
 {#    Fin du content general     #}
-{#   </div>#}
+   </div>
 
 {#        <div class="forumContent hidden" id="tabEpicerie">CECI EST MON EPICERIE</div>
         <div class="forumContent hidden" id="tabBar">CECI EST MON BAR</div>

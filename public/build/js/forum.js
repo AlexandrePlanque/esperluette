@@ -3,6 +3,7 @@ $(window).on('load', function() {
     $('.forumContent').hide();
     //puis on affiche l'element qu'on a defini par defaut
     $('#tabForum div').first().show();
+    $('#btnCatForum a').first().addClass("aActive");
 });
 
 $(document).ready(function() {    
@@ -20,13 +21,18 @@ $(document).ready(function() {
 });
 
 
-$(".btn-pref .btn").click(function () {
+$("#btnCatForum a").click(function (e) {
+    e.preventDefault();
     // on cache les differentes parties du forum
     $('.forumContent').hide();
     //on retire le mode actif du bouton courant avant de l'assigner à un nouveau
-    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-    $(this).removeClass("btn-default").addClass("btn-primary");
+    $("#btnCatForum a").removeClass("aActive");
+    $(this).addClass("aActive");
 
     //on affiche la section souhaité grace à l'ID placé sur l'element courant
-    $( $(this).attr('id') ).show();
+    $( $(this).attr('href') ).show();
+});
+
+$('.table-bordered tr').click(function(){
+   window.location.href = window.location + "/sujet/" + $(this).attr('id');
 });
