@@ -54,7 +54,29 @@
 
     <section>
         <div class="container">
+<form>
 
+        {% for cat in listeCat %}
+       
+        <h3>{{cat.intitule }}</h3>
+
+        {% for question in cat.question %}
+        {{ question.intitule }}
+
+        <div class="form-group">
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    {% for reponse in question.reponse %}
+                    <option>{{ reponse.intitule }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+        {% endfor %}
+    {% endfor %}
+
+</form>
+
+        
         {# - L’ÉQUIPE #}
             <div class="row">
                 <div class="col">

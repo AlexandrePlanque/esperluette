@@ -26,10 +26,6 @@ class Reponse
      */
     private $question;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FormResponses", inversedBy="reponse")
-     */
-    private $formResponses;
 
     public function getId(): ?int
     {
@@ -56,18 +52,6 @@ class Reponse
     public function setQuestion(?Question $question): self
     {
         $this->question = $question;
-
-        return $this;
-    }
-
-    public function getFormResponses(): ?FormResponses
-    {
-        return $this->formResponses;
-    }
-
-    public function setFormResponses(?FormResponses $formResponses): self
-    {
-        $this->formResponses = $formResponses;
 
         return $this;
     }
