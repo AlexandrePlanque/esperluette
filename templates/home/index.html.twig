@@ -1,20 +1,310 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+<head>
+	<title>{% block title %}Esperluette{% endblock %}</title>
+</head>
+
+{% block stylesheets %}
+<!-- bootstrap Style CSS File -->
+<link rel="stylesheet" href="{{ asset('build/css/bootstrap.min.css') }}">
+<!-- Custom Style CSS File -->
+<link rel="stylesheet" type="text/css" href="{{ asset('build/css/custom-style.css') }}">
+<!-- Font-Awesome Style CSS File -->
+<link rel="stylesheet" type="text/css" href="{{ asset('build/font-awesome/css/font-awesome.min.css') }}">
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<body>
+	<!-- NavBar -->
+	{% block NavBar %}
+	<nav class="navbar navbar-expand-md fixed-top top-nav">
+		<div class="container">
+			<a class="navbar-brand" href="index.html"><strong>Esperluette</strong></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+			</button>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="./">Accueil<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./about">Le projet</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html" data-toggle="modal" data-target="#loginModal">Se connecter</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	{% endblock NavBar %}
+
+	<!-- BANDEAU -->
+	<section class="intro carousel slide bg-overlay-light h-auto" id="carouselExampleCaptions">
+		<div class="carousel-inner" role="listbox">
+			<div class="carousel-item active">
+				<img class="d-block img-fluid" alt="First slide" src="{{ asset('build/img/esperluette_2.jpg')}}">
+				<div class="carousel-caption ">
+					<h2 class="display-4 text-white mb-2 mt-4">Mieux vivre ensemble.</h2>
+					<p class="text-white mb-3 px-5 lead">Le projet est de créer (co-créer) un tiers lieu solidaire dans le quartier de Celleneuve afin de favoriser le vivre ensemble.
+                            Autour de la petite cuisine de l’Espiralh (qui propose depuis 4 ans un plat unique tous les midis à prix libre), nous souhaitons développer un lieu de partage et d’échange principalement axé autour de l’alimentation, en créant un bar de proximité et une épicerie en circuit court. 
+                            L’idée est de rassembler les habitants de Celleneuve, de leur permettre d’accéder simplement et à moindre coût à une alimentation responsable, de proposer et/ou de participer à des ateliers.
+						veniam, </p>
+					<a href="./about" class="btn btn-primary btn-capsul px-4 py-2">En savoir plus</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- PARTICIPER -->
+	<section class="info-section">
+		<div class="container">
+			<div class="head-box text-center mb-5">
+				<h2>Participer</h2>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 d-flex justify-content-center">
+					<div class="card p-2" style="width: 18rem;">
+						<img class="card-img-top" src="{{ asset('build/img/survey.jpg')}}" alt="Card image cap">
+						<div class="card-body text-center">
+							<h5 class="card-title">Donnez votre avis</h5>
+							<p class="card-text">Donnez votre avis sur le lieu en répondant à un court questionnaire.</p>
+							<a href="./questionnaire" class="btn btn-primary">Participer</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 d-flex justify-content-center">
+					<div class="card p-2" style="width: 18rem;">
+						<img class="card-img-top" src="{{ asset('build/img/share.jpg')}}" alt="Card image cap">
+						<div class="card-body text-center">
+							<h5 class="card-title">Collaborez</h5>
+							<p class="card-text">Inscrivez-vous et participez plus activement à l'élaboration du projet grâce à notre
+								plateforme participative</p>
+							<a href="#" class="btn btn-primary">S'inscrire</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ACTUALITES -->
+	<section class="testimonial-section py-5 bg-primary">
+		<div class="container">
+			<div class="row">
+				<div class="head-box text-center mb-3 col-md-12 text-white">
+					<h2>Dernières actualités</h2>
+				</div>
+				<div class="col-md-4 mb-sm-4 mb-md-0 pb-5">
+					<div class="card block-style-03">
+						<div class="card-body">
+							<h4 class="text-center">A la recherche d'un local</h4>
+							<p class="text-center mb-1"><i class="fa fa-quote-left fa-2x text-primary" aria-hidden="true"></i></p>
+							<p class="card-text text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						</div>
+						<div class="card-footer bg-primary">
+							<div class="media text-center text-white">
+								<div class="media-body">
+									<h6>12 octobre 2018</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-sm-4 mb-md-0 pb-5">
+					<div class="card block-style-03">
+						<div class="card-body">
+							<h4 class="text-center">Actualité 2</h4>
+							<p class="text-center mb-1"><i class="fa fa-quote-left fa-2x text-primary" aria-hidden="true"></i></p>
+							<p class="card-text text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						</div>
+						<div class="card-footer bg-primary">
+							<div class="media text-center text-white">
+								<div class="media-body">
+									<h6>10 octobre 2018</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-sm-4 mb-md-0 pb-5">
+					<div class="card block-style-03">
+						<div class="card-body">
+							<h4 class="text-center">Actualité 3</h4>
+							<p class="text-center mb-1"><i class="fa fa-quote-left fa-2x text-primary" aria-hidden="true"></i></p>
+							<p class="card-text text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						</div>
+						<div class="card-footer bg-primary">
+							<div class="media text-center text-white">
+								<div class="media-body">
+									<h6>09 octobre 2018</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- NOTRE EQUIPE -->
+	<section class="team-section py-5">
+		<div class="container">
+			<div class="head-box text-center mb-5">
+				<h2>Notre équipe</h2>
+			</div>
+			<div class="row">
+				<div class="col cardUser">
+					<div class="card" style="width: 12rem;">
+						<img class="card-img-top img-fluid" src="{{ asset('build/img/t-member-01.jpg')}}" alt="Card image cap">
+						<div class="card-body text-center">
+							<h6 class="card-title">Nom prenom</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col cardUser">
+					<div class="card" style="width: 12rem;">
+						<img class="card-img-top img-fluid" src="{{ asset('build/img/t-member-02.jpg')}}" alt="Card image cap">
+						<div class="card-body text-center">
+							<h6 class="card-title">Nom prenom</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col cardUser">
+					<div class="card" style="width: 12rem;">
+						<img class="card-img-top img-fluid" src="{{ asset('build/img/t-member-03.jpg')}}" alt="Card image cap">
+						<div class="card-body text-center">
+							<h6 class="card-title">Nom prenom</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col cardUser">
+					<div class="card" style="width: 12rem;">
+						<img class="card-img-top img-fluid" src="{{ asset('build/img/t-member-04.jpg')}}" alt="Card image cap">
+						<div class="card-body text-center">
+							<h6 class="card-title">Nom prenom</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- NEWSLETTER -->
+	<section class="widget py-3 bg-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-12 text-sm-center text-md-left text-white pt-3">
+					<h2>Recevoir l'infolettre du projet</h2>
+				</div>
+				<div class="col-md-4 col-lg-3 col-sm-12 text-sm-center text-md-right copy-container">
+					<div class="copy-content">
+						<div class="input-group">
+							<input class="form-control" aria-label="Amount (to the nearest dollar)" type="text" placeholder="Votre courriel">
+							<span class="input-group-addon">S'inscrire</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CONTACT -->
+	<section class="info-section bg-light py-4">
+		<div class="container">
+				<form>
+						<h3 class="mb-4">Nous contacter</h3>
+						<div class="row">
+							<div class="col-md-6">
+							<div class="form-group">
+								<label class="sr-only" for="name">Prénom</label>
+								<input class="form-control" id="name" name="name" placeholder="Votre prénom" type="text">
+							</div>
+							</div>
+							<div class="col-md-6">
+							<div class="form-group">
+								<label class="sr-only" for="email">Courriel</label>
+								<input class="form-control" id="email" name="email" type="text" placeholder="Votre courriel">
+							</div>		
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+							<div class="form-group">
+								<label class="sr-only" for="message">Message</label>
+								<textarea name="message"  id="message" class="form-control" placeholder="Votre message" rows="4"></textarea>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-primary btn-capsul">Envoyer</button>
+							</div>		
+							</div>
+						</div>
+					</form>
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	<section class="footer-section bg-dark pt-5">
+		<div class="container text-center text-light">All rights reserved. Created with <i class="fa fa-heart"></i></div>
+	</section>
+
+	<!-- Modal LOGIN-->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="input-group-text">email</div>
+							</div>
+							<input type="text" class="form-control" id="login" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="input-group-text">Mot de passe</div>
+							</div>
+							<input class="form-control" type="password" id="password" value="">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+					<button type="button" class="btn btn-outline-primary" onclick="checkMyName();">Valider</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Javascript -->
+	{% block js %}
+	<script src="{{ asset('build/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('build/js/core.js') }}"></script>
+	<script src="{{ asset('build/js/cookiechoices.js') }}"></script><script>document.addEventListener('DOMContentLoaded', function(event){cookieChoices.showCookieConsentBar('Ce site utilise des cookies pour vous offrir le meilleur service. En poursuivant votre navigation, vous acceptez l’utilisation des cookies.', 'J’accepte', 'En savoir plus', 'http://www.example.com/mentions-legales/');});</script>
+
+	{% endblock js %}
+</body>
+{% endblock body %}
+
+</html>

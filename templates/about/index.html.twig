@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}Esperluette{% endblock %}</title>
+</head>
+
+{% block stylesheets %}
+<!-- bootstrap Style CSS File -->
+<link rel="stylesheet" href="{{ asset('build/css/bootstrap.min.css') }}">
+<!-- Custom Style CSS File -->
+<link rel="stylesheet" type="text/css" href="{{ asset('build/css/secondary-style.css') }}">
+<!-- Font-Awesome Style CSS File -->
+<link rel="stylesheet" type="text/css" href="{{ asset('build/font-awesome/css/font-awesome.min.css') }}">
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<body>
+    <!-- NavBar -->
+    {% block NavBar %}
+    <div class="container">
+    <nav class="navbar navbar-expand-md top-nav ">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><strong>Esperluette</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./">Accueil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./about">Le projet<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Se
+                            connecter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    {% endblock NavBar %}
+
+    <section>
+        <div class="container">
+
+        {# - L’ÉQUIPE #}
+            <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+
+        {# - LE TIERS LIEU SOLIDAIRE #}
+        <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+
+        {# - LE RESTAURANT/BAR #}
+        <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+
+        {# - LES ATELIERS #}
+        <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+
+        {# - ILS NOUS SOUTIENNENT #}
+        <div class="row">
+                <div class="col">
+                        <p>Ce projet est soutenu par le laboratoire Leris, un laboratoire de recherche-action indépendant de sociologie qui mène depuis deux ans une étude en Occitanie autour de l’aide alimentaire et les circuits courts. (lien vers le rapport de l’étude)
+                        Asso locales (Odette, Oaqadi, Comité de quartier)
+                        Cinéma municipal
+                        Paul (producteur bio du marché du mercredi matin)
+                        Habitants du quartier</p>
+                </div>
+            </div>
+                
+                Texte incomplet…
+
+        </div>
+    </section>
+    <!-- NEWSLETTER -->
+    <section class="widget py-3 bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 text-sm-center text-md-left text-white pt-3">
+                    <h2>Recevoir l'infolettre du projet</h2>
+                </div>
+                <div class="col-md-4 col-lg-3 col-sm-12 text-sm-center text-md-right copy-container">
+                    <div class="copy-content">
+                        <div class="input-group">
+                            <input class="form-control" aria-label="Amount (to the nearest dollar)" type="text"
+                                placeholder="Votre courriel">
+                            <span class="input-group-addon">S'inscrire</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="info-section bg-light py-4">
+        <div class="container">
+            <form>
+                <h3 class="mb-4">Nous contacter</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">Prénom</label>
+                            <input class="form-control" id="name" name="name" placeholder="Votre prénom" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="email">Courriel</label>
+                            <input class="form-control" id="email" name="email" type="text" placeholder="Votre courriel">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="sr-only" for="message">Message</label>
+                            <textarea name="message" id="message" class="form-control" placeholder="Votre message" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-capsul">Envoyer</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer-section bg-dark pt-5">
+        <div class="container text-center text-light">All rights reserved. Created with <i class="fa fa-heart"></i></div>
+    </section>
+
+    <!-- Modal LOGIN-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">email</div>
+                            </div>
+                            <input type="text" class="form-control" id="login" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Mot de passe</div>
+                            </div>
+                            <input class="form-control" type="password" id="password" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="checkMyName();">Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Javascript -->
+    {% block js %}
+    <script src="{{ asset('build/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('build/js/core.js') }}"></script>
+    <script src="{{ asset('build/js/cookiechoices.js') }}"></script>
+    <script>document.addEventListener('DOMContentLoaded', function (event) { cookieChoices.showCookieConsentBar('Ce site utilise des cookies pour vous offrir le meilleur service. En poursuivant votre navigation, vous acceptez l’utilisation des cookies.', 'J’accepte', 'En savoir plus', 'http://www.example.com/mentions-legales/'); });</script>
+
+    {% endblock js %}
+</body>
+{% endblock body %}
+
+</html>
