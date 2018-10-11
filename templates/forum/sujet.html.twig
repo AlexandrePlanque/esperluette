@@ -5,7 +5,7 @@ Forum
 {% endblock %}
 {% block style %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('build/css/forum-style.css') }}">
+    <link href="{{ asset('build/css/forum-style.css') }}"  rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block body %}
@@ -58,7 +58,7 @@ Forum
   <textarea class="form-control" rows="5" id="comment"></textarea>
             <button class="btn btn-success mt-1 float-right">Répondre</button
             <!-- textarea hidden suite à un bug d'affichage indeterminer -->
-            <textarea class="form-control hidden" rows="5" id="comment"></textarea>
+{#            <textarea class="form-control hidden" rows="5" id="comment"></textarea>#}
     </div>
         </div>
 
