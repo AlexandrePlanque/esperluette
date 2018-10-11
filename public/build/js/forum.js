@@ -33,6 +33,6 @@ $("#btnCatForum a").click(function (e) {
     $( $(this).attr('href') ).show();
 });
 
-$('.table-bordered tr').click(function(){
+$('.table-bordered tbody tr').click(function(){
    window.location.href = window.location + "/sujet/" + $(this).attr('id');
 });
