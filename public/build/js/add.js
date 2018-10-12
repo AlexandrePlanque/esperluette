@@ -21,7 +21,12 @@ $('#addQuest').submit(function (e) {
         "16": $("#quest16").val(),
         "17": $("#quest17").val(),
         "18": $("#quest18").val(),
-        "19": $("#quest19").val()
+        "19": $("#quest18").val(),
+        "20": $("#quest19").val(),
+        "21": $("#quest19").val(),
+        "22": $("#quest19").val(),
+        "23": $("#quest19").val(),
+        "24": $("#quest19").val()
     };
 
     console.log(data);

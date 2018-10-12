@@ -22,119 +22,170 @@
     <!-- NavBar -->
     {% block NavBar %}
     <div class="container">
-    <nav class="navbar navbar-expand-md top-nav ">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><strong>& Esperluette</strong></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
-            </button>
+        <nav class="navbar navbar-expand-md top-nav ">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><strong>& Esperluette</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./">Accueil</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./about">Le projet<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Se
-                            connecter</a>
-                    </li>
-                </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./">Accueil</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./about">Le projet<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#loginModal">Se
+                                connecter</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
     {% endblock NavBar %}
 
     <section>
         <div class="container">
-
-        {# - L’ÉQUIPE #}
+            {# - RESUME #}
+            <div class="row">
+                <div class="col">
+                    <p>Le projet est de créer (co-créer) un tiers lieu solidaire, l’Esperluette, dans le quartier de
+                        Celleneuve, afin de favoriser le vivre ensemble et l’accès de tous à une alimentation choisie
+                        et responsable.
+                        Autour de la petite cuisine de l’Espiralh (qui propose depuis 4 ans un plat unique tous les
+                        midis à prix libre), nous souhaitons développer un lieu de partage et d’échange autour de
+                        l’alimentation, en créant un café-resto de quartier et une épicerie coopérative et solidaire en
+                        circuits-courts.
+                        L’idée est de rassembler les habitants de Celleneuve, appartenant aux différentes communautés
+                        et groupes sociaux, pour leur permettre d’accéder simplement et à moindre coût à une
+                        alimentation responsable, tout en leur proposant de participer à des ateliers et des actions
+                        collectives.
+                        Basé sur l’implication des habitants, le fonctionnement de l’Esperluette contribuera à
+                        développer la citoyenneté, la convivialité, la solidarité et la transition alimentaire, à
+                        Celleneuve.</p>
+                </div>
+            </div>
+            {# - SCHEMA #}
             <div class="row rowAbout">
                 <div class="col">
+                    <img class="card-img-top" src="{{ asset('build/img/schema-esperluette.png')}}" alt="Card image cap">
+                </div>
+            </div>
+                {# - L’ÉQUIPE #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>L’ÉQUIPE</h3>
-                        <p>L’équipe de départ est composée du conseil d’administration de l’Espiralh, de son cuisinier salarié et de trois habitants volontaires.</p>
+                        <p>L’équipe de départ est composée du conseil d’administration de l’Espiralh, de son cuisinier
+                            salarié et de trois habitants volontaires.</p>
+                    </div>
                 </div>
-            </div>
 
-        {# - LE TIERS LIEU SOLIDAIRE #}
-        <div class="row rowAbout">
-                <div class="col">
+                {# - LE TIERS LIEU SOLIDAIRE #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>LE TIERS LIEU SOLIDAIRE</h3>
-                        <p>Pour installer le Tiers-Lieu nous recherchons un lieu suffisamment grand pour accueillir l’ensemble des activités (100 m2), disposant d’un espace extérieur et/ou d’une vitrine et situé dans une rue passante du quartier. L’espace devra être ouvert et accessible à tous.
-                        Les tiers-lieux sont avant tout des lieux de sociabilité et d’échanges de pratiques,  susceptibles de répondre à une multiplicité de besoins et d’aspirations, et de faire naitre de nouvelles initiatives.  Ils sont des lieux de synergies susceptibles de transformer le territoire .
-                    </p>
+                        <p>Pour installer le Tiers-Lieu nous recherchons un lieu suffisamment grand pour accueillir
+                            l’ensemble des activités (100 m2), disposant d’un espace extérieur et/ou d’une vitrine et
+                            situé dans une rue passante du quartier. L’espace devra être ouvert et accessible à tous.
+                            Les tiers-lieux sont avant tout des lieux de sociabilité et d’échanges de pratiques,
+                            susceptibles de répondre à une multiplicité de besoins et d’aspirations, et de faire naitre
+                            de nouvelles initiatives. Ils sont des lieux de synergies susceptibles de transformer le
+                            territoire .
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-        {# - LE RESTAURANT/BAR #}
-        <div class="row rowAbout">
-                <div class="col">
+                {# - LE RESTAURANT/BAR #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>LE CAFE-RESTO</h3>
-                        <p>Sur la base du fonctionnement actuel de l’Espiralh, le resto proposera un menu unique à prix libre le midi (objectif de 35 couverts /midi). La partie café ouvrira quelques soir par semaine et au moins un dimanche par mois pour proposer des formules boissons & tapas ou brunch. Des soirées et après-midi thématiques seront également proposées (enfants, jeux, concerts, débats…).</p>
-                        
+                        <p>Sur la base du fonctionnement actuel de l’Espiralh, le resto proposera un menu unique à prix
+                            libre le midi (objectif de 35 couverts /midi). La partie café ouvrira quelques soir par
+                            semaine et au moins un dimanche par mois pour proposer des formules boissons & tapas ou
+                            brunch. Des soirées et après-midi thématiques seront également proposées (enfants, jeux,
+                            concerts, débats…).</p>
+
+                    </div>
                 </div>
-            </div>
-        {# - EPICERIE #}
-        <div class="row rowAbout">
-                <div class="col">
+                {# - EPICERIE #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>L’EPICERIE COOPERATIVE ET SOLIDAIRE</h3>
-                        <p>L’épicerie sera approvisionnée par un réseau de producteurs locaux, des surplus de magasins bio, et des produits secs achetés.
-                        Elle fonctionnera grâce à la participation de ses membres qui s’impliqueront dans les différentes fonctions (achats, récupération, acheminement de marchandises, mise en rayon, gestion des stocks, accueil, comptabilité etc.)
-                        Un système de solidarité sera mis en place.</p>
+                        <p>L’épicerie sera approvisionnée par un réseau de producteurs locaux, des surplus de magasins
+                            bio, et des produits secs achetés.
+                            Elle fonctionnera grâce à la participation de ses membres qui s’impliqueront dans les
+                            différentes fonctions (achats, récupération, acheminement de marchandises, mise en rayon,
+                            gestion des stocks, accueil, comptabilité etc.)
+                            Un système de solidarité sera mis en place.</p>
+                    </div>
                 </div>
-            </div>
 
-        {# - ESPACES #}
-        <div class="row rowAbout">
-                <div class="col">
+                {# - ESPACES #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>LA MUTUALISATION D’ESPACES, D’EQUIPEMENTS ET DE SAVOIR-FAIRE</h3>
-                        <p>Le tiers-lieu pourra accueillir, à différents moments de la journée et de la semaine, d’autres activités professionnelles (ex : micro-entreprise de production de conserves) ou bénévoles (ex : réunions d’associations partenaires). Le partage des connaissances et savoir faire sera favorisé.</p>
-                        
+                        <p>Le tiers-lieu pourra accueillir, à différents moments de la journée et de la semaine,
+                            d’autres activités professionnelles (ex : micro-entreprise de production de conserves) ou
+                            bénévoles (ex : réunions d’associations partenaires). Le partage des connaissances et
+                            savoir faire sera favorisé.</p>
+
+                    </div>
                 </div>
-            </div>
 
 
-        {# - LES ATELIERS #}
-        <div class="row rowAbout">
-                <div class="col">
+                {# - LES ATELIERS #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>LES ATELIERS ET ACTIONS COLLECTIVES</h3>
-                        <p>A partir des propositions des membres, tous types d’ateliers ou actions collectives pourront avoir lieu : cuisine, repas, sorties glanage ou cueillette sauvage, fabrication de lessive, sociologie, radio, art plastique…</p>
-                        
-                </div>
-            </div>
+                        <p>A partir des propositions des membres, tous types d’ateliers ou actions collectives pourront
+                            avoir lieu : cuisine, repas, sorties glanage ou cueillette sauvage, fabrication de lessive,
+                            sociologie, radio, art plastique…</p>
 
-        {# - INSERTION SOCIALE #}
-        <div class="row rowAbout">
-                <div class="col">
+                    </div>
+                </div>
+
+                {# - INSERTION SOCIALE #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>INSERTION SOCIALE ET ACCES A L’EMPLOI</h3>
                         <p>
-                        Le projet s’appuiera sur une forte dynamique bénévole, source d’insertion sociale.
-                        En termes d’emploi, le projet contribuera à péréniser le poste de cuisinier de l’Espiralh et à créer un ou deux emplois en lien avec les activités café-resto et épicerie.
-                        Dans la continuité des activités actuelles de l’Espiralh, il pourra accueillir des stages de jeunes, de personnes en situation de handicap ou de fragilité sociale pour la découverte des métiers présents dans le lieu.</p> 
+                            Le projet s’appuiera sur une forte dynamique bénévole, source d’insertion sociale.
+                            En termes d’emploi, le projet contribuera à péréniser le poste de cuisinier de l’Espiralh
+                            et à créer un ou deux emplois en lien avec les activités café-resto et épicerie.
+                            Dans la continuité des activités actuelles de l’Espiralh, il pourra accueillir des stages
+                            de jeunes, de personnes en situation de handicap ou de fragilité sociale pour la découverte
+                            des métiers présents dans le lieu.</p>
+                    </div>
                 </div>
-            </div>
 
-        {# - ILS NOUS SOUTIENNENT #}
-        <div class="row rowAbout">
-                <div class="col">
+                {# - ILS NOUS SOUTIENNENT #}
+                <div class="row rowAbout">
+                    <div class="col">
                         <h3>ILS NOUS SOUTIENNENT</h3>
-                
-                        <p>Ce projet s’inscrit dans une démarche d’expérimentation à l’échelle de la Région Occitanie, menée par le LERIS un laboratoire de recherche-action en sciences sociales, avec le Secours Populaire et le Secours Catholique sur la lutte contre la précarité alimentaire à partir des dynamiques de transition (lien vers le rapport de l’étude).
-                        Ce projet s’appuie sur des liens forts avec les acteurs du quartier : Maison pour Tous, Association Odette Louise (projet d’EVS), le Cinéma Municipal Nestor Burma, le comité de quartier qui sollicitent déjà l’Espiralh pour des services de traiteur.
-                        Nous pouvons également compter sur la coopération de certains producteurs bio présents sur le marché du mercredi matin.
-                    </p>
-                </div>
-            </div>
-                
 
-        </div>
+                        <p>Ce projet s’inscrit dans une démarche d’expérimentation à l’échelle de la Région Occitanie,
+                            menée par le LERIS un laboratoire de recherche-action en sciences sociales, avec le Secours
+                            Populaire et le Secours Catholique sur la lutte contre la précarité alimentaire à partir
+                            des dynamiques de transition (lien vers le rapport de l’étude).
+                            Ce projet s’appuie sur des liens forts avec les acteurs du quartier : Maison pour Tous,
+                            Association Odette Louise (projet d’EVS), le Cinéma Municipal Nestor Burma, le comité de
+                            quartier qui sollicitent déjà l’Espiralh pour des services de traiteur.
+                            Nous pouvons également compter sur la coopération de certains producteurs bio présents sur
+                            le marché du mercredi matin.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
     </section>
     <!-- NEWSLETTER -->
     <section class="widget py-3 bg-primary">
@@ -197,39 +248,41 @@
 
     <!-- Modal LOGIN-->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">email</div>
-                            </div>
-                            <input type="text" class="form-control" id="login" value="">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                                    <form class="ui form popupConnexion" action="{{ path('connexion') }}" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+    {#						<div class="input-group">#}
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">email</div>
+                                </div>
+                                <input type="text" class="form-control" id="login" name="_username" value="">
+    {#						</div>#}
+                        </div>
+                        <div class="form-group">
+    {#						<div class="input-group">#}
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Mot de passe</div>
+                                </div>
+                                <input class="form-control" type="password" name="_password" id="password" value="">
+    {#						</div>#}
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">Mot de passe</div>
-                            </div>
-                            <input class="form-control" type="password" id="password" value="">
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+                                            <button type="submit" class="btn btn-outline-primary">Valider</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="checkMyName();">Valider</button>
+                                    </form>
                 </div>
             </div>
         </div>
-    </div>
     <!-- Javascript -->
     {% block js %}
     <script src="{{ asset('build/js/bootstrap.min.js') }}"></script>
