@@ -41,10 +41,12 @@ Forum
       <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-md-8" id="tabForum">
-            
+        <div class="col-md-8 my-4" id="tabForum">
+{#            {% if app.user %}#}
+            <button class="btn btn-info mb-2" type="button" id="toggleForm">Publier</button>
+{#            {% endif %}#}
                     {% for theme in themes %}
-            <div class="forumContent hidden my-4" id="tab{{ theme.theme }}">
+            <div class="forumContent" id="tab{{ theme.theme }}">
                 <table class="table table-striped table-bordered">
                     <thead class="thead-light">
                         <tr>
@@ -55,39 +57,30 @@ Forum
                     </thead>
                 {% for sujet in theme.sujets %}
                     <tr id="{{ sujet.id }}">
-                        <td>{{ sujet.intitule }}</td><td>{{ sujet.auteur.nom }} {{ sujet.auteur.prenom}}</td><td>{{sujet.dateCreation|date("d/m/Y") }}</td>
+                        <td>{{ sujet.intitule }}</td>
+                        <td>{{ sujet.auteur.nom }} {{ sujet.auteur.prenom}}</td>
+                        <td>{{ sujet.dateCreation|date("d/m/Y à H:i:s") }}</td>
                     </tr>
                 {% endfor %}  
                 </table>
             </div>
         {% endfor %}  
-            
-{#          <table>
-            {% for theme in themes %}
-              {% for sujet in theme.sujets %}
-              <tr>
-                <td>{{ sujet.intitule}}</td><td>{{ sujet.auteur.nom }}</td><td>{{sujet.dateCreation|date("m/d/Y") }}</td>
-              </tr>
-              {% endfor %}
-            {% endfor %}
-          </table>#}
-          
-
-          <!-- Blog Post -->
-{#          <div class="card mb-3">
-            <img class="card-img-top" src="http://placehold.it/250x100" alt="Card image cap">
-            <div class="card-body">
-              <h2 class="card-title">Post Title</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            <div class="ajoutPubli">
+                <form id="publicationForm">
+                    <div class='row'>
+                        <div class="form-group col-md-12 active-cyan-4">
+                            <label for="titre">Titre de la publication</label>
+                            <input type="text" id="titre" name="titre" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+                        </div>
+                        <div class="form-group col-md-12 active-cyan-4">
+                            <label for="corps">Votre message</label>
+                            <textarea class="form-control" rows="5" id="corps">
+                            </textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-success float-right" type="submit">Valider</button>
+                </form>
             </div>
-            <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-              <a href="#">Start Bootstrap</a>
-            </div>
-          </div>#}
-
-
         </div>
 
         <!-- Sidebar Widgets Column -->
@@ -102,7 +95,7 @@ Forum
                   <ul class="list-unstyled mb-0" id="btnCatForum">
                     {% for theme in themes %}
                         <a href="#tab{{ theme.theme }}" class="list-group-item">
-                            <i class="fa fa-comment-o"></i> {{ theme.theme }}
+                            <i class="fa fa-comment-o"></i> <span>{{ theme.theme }}</span>
                         </a>
                     {% endfor %}
                   </ul>
@@ -128,42 +121,8 @@ Forum
     </div>
     <!-- /.container -->
 
-    <!-- Page Content -->
-{#    <div class="container">#}
-
-    <div class="container-fluid hidden" id="tabFordum">
-        {% for theme in themes %}
-            <div class="forumContent hidden my-4" id="tab{{ theme.theme }}">
-                <p>testestest</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Titreeeeeeee</td>
-                            <td>Auteur</td>
-                            <td>Date de publication</td>
-                        </tr>
-                    </thead>
-                {% for sujet in theme.sujets %}
-                    <tr id="{{ sujet.id }}">
-                        <td>{{ sujet.intitule }}</td><td>{{ sujet.auteur.nom }} {{ sujet.auteur.prenom}}</td><td>{{sujet.dateCreation|date("m/d/Y") }}</td>
-                    </tr>
-                {% endfor %}  
-                </table>
-            </div>
-        {% endfor %}  
-    </div>
-
-        {#    Fin du content     #}
- 
-{#    Fin du content general     #}
-{#   </div>#}
-
-{#        <div class="forumContent hidden" id="tabEpicerie">CECI EST MON EPICERIE</div>
-        <div class="forumContent hidden" id="tabBar">CECI EST MON BAR</div>
-        <div class="forumContent hidden" id="tabRestaurant">CECI EST MON RESTAURANT</div>#}
-{#  Fin des tabs du forum  #}
-    </div>
 
 <script src="{{ asset('build/js/jquery-3.3.1.js') }}"></script>
+<script src="{{ asset('build/js/notify.min.js') }}"></script>
 <script src="{{ asset('build/js/forum.js') }}"></script>
 {% endblock %}

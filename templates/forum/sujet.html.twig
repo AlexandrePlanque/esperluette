@@ -53,10 +53,11 @@ Forum
                 </div>
             {% endfor %}
             <hr>
+            
             <div class="form-group">
-  <label for="comment">Comment:</label>
+  <label for="comment">Réponse :</label>
   <textarea class="form-control" rows="5" id="comment"></textarea>
-            <button class="btn btn-success mt-1 float-right">Répondre</button
+            <button class="btn btn-success mt-1 float-right" id="reponseSujet">Répondre</button
             <!-- textarea hidden suite à un bug d'affichage indeterminer -->
 {#            <textarea class="form-control hidden" rows="5" id="comment"></textarea>#}
     </div>
@@ -102,5 +103,6 @@ Forum
 
 
 <script src="{{ asset('build/js/jquery-3.3.1.js') }}"></script>
+<script src="{{ asset('build/js/forum.js') }}"></script>
 <script src="{{ asset('build/js/message.js') }}"></script>
 {% endblock %}
