@@ -44,7 +44,7 @@ class AddResponsesController extends AbstractController
     }
 
         /**
-     * @Route("/count", name="count", methods="GET")
+     * @Route("/charts/get", name="count", methods="GET")
      */
     public function countReponse(Request $request)
     {
@@ -110,7 +110,7 @@ class AddResponsesController extends AbstractController
      */
     public function showCharts(Request $request)
     {
-        return $this->render('test/index.html.twig', [
+        return $this->render('questionnaire/chart.html.twig', [
             'datas' => "toto"
         ]);
     }

@@ -33,7 +33,8 @@ $('#addQuest').submit(function (e) {
         data : data,
         
         success : function(donne){
-            console.log(donne);
+            $('.btn-capsul').notify('Votre formulaire à été valider, merci d\'avoir pris le temps de répondre', 'success');
+//            console.log(donne);
         },
         
         error : function (xhr, status, error) {
