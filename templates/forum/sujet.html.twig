@@ -5,6 +5,7 @@ Forum
 {% endblock %}
 {% block stylesheets %}
     {{parent()}}
+    <link rel="icon" href="{{ asset("./build/img/espe.png") }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('build/css/forum-style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('build/css/secondary-style.css') }}">
 {% endblock %}
@@ -86,14 +87,16 @@ Forum
                 </ul>
             </nav>
             <hr id="endMessage">
-            
+            {% if app.user %}
             <div class="form-group">
-  <label for="comment">Réponse :</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
+                <label for="comment">Réponse :</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
             <button class="btn btn-success mt-1 float-right" id="reponseSujet">Répondre</button
             <!-- textarea hidden suite à un bug d'affichage indeterminer -->
 {#            <textarea class="form-control hidden" rows="5" id="comment"></textarea>#}
-    </div>
+            </div>
+            {% endif %}
+    
         </div>
 
         <!-- Sidebar Widgets Column -->
@@ -119,12 +122,14 @@ Forum
           </div>
 
           <!-- Side Widget -->
-          <div class="card my-4">
+        <div class="card my-4">
             <h5 class="card-header">Dernière publication</h5>
             <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                <p>Par {{ lastmsg.auteur.prenom }} le {{ lastmsg.dateCreation|date('d/m/Y à H:i:s') }}</p>
+                <p >Publié à la suite du sujet {{lastmsg.sujet.intitule}}</p>
+                <a href="{{path('forum')}}/sujet/{{lastmsg.sujet.id}}">Consulter la publication</a>
             </div>
-          </div>
+        </div>
 
         </div>
 

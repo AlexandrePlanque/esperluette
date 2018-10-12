@@ -27,9 +27,9 @@ class ForumController extends AbstractController
     /**
      * @Route("/forum/sujet/{id}", name="forum_sujet", methods="GET")
      */
-    public function getSujet(Sujet $sujet, ForumRepository $repo){
+    public function getSujet(Sujet $sujet, ForumRepository $repo, MessageRepository $msgs){
         return $this->render('forum/sujet.html.twig', [
-            'sujet' =>  $sujet,'themes' =>  $repo->findAll()
+            'sujet' =>  $sujet,'themes' =>  $repo->findAll(),'lastmsg' => $msgs->findOneBy(array(), array("dateCreation" => "DESC"))
         ]);
     }
     

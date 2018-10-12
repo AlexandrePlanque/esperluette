@@ -55,13 +55,40 @@ class EsperluetteFixtures extends Fixture
     
     public function user($em){
         $a = new User();
-        $a->setNom('Cantinelli');
+        $a->setNom('C.');
         $a->setPrenom('Thomas');
         $a->setEmail('tcantinelli@gmail.com');
         $a->setMotdepasse($this->encoder->encodePassword($a, 'motdepasse'));
         $a->setRole($em->find(Role::class, 1));
         
         $em->persist($a);
+        
+        $b = new User();
+        $b->setNom('P.');
+        $b->setPrenom('Alexandre');
+        $b->setEmail('planquealexandre@gmail.com');
+        $b->setMotdepasse($this->encoder->encodePassword($b, 'motdepasse'));
+        $b->setRole($em->find(Role::class, 1));
+        
+        $em->persist($b);
+
+        $c = new User();
+        $c->setNom('D.');
+        $c->setPrenom('Fanny');
+        $c->setEmail('fannyd@gmail.com');
+        $c->setMotdepasse($this->encoder->encodePassword($b, 'motdepasse'));
+        $c->setRole($em->find(Role::class, 1));
+        
+        $em->persist($c);
+        
+        $d = new User();
+        $d->setNom('R.');
+        $d->setPrenom('Mathieu');
+        $d->setEmail('rmathieu@gmail.com');
+        $d->setMotdepasse($this->encoder->encodePassword($b, 'motdepasse'));
+        $d->setRole($em->find(Role::class, 1));
+        
+        $em->persist($d);
         
         $em->flush();
     }
@@ -84,6 +111,11 @@ class EsperluetteFixtures extends Fixture
         
         $f = new Forum();
         $f->setTheme("Restaurant");
+        $em->persist($f);
+        $em->flush($f);
+        
+        $f = new Forum();
+        $f->setTheme("Atelier");
         $em->persist($f);
         $em->flush($f);
     }

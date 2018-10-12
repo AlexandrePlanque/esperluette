@@ -5,6 +5,7 @@ Forum
 {% endblock %}
 {% block stylesheets %}
     {{parent()}}
+    <link rel="icon" href="{{ asset("./build/img/espe.png") }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('build/css/forum-style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('build/css/secondary-style.css') }}">
 {% endblock %}
@@ -15,7 +16,7 @@ Forum
     <div class="container">
         <nav class="navbar navbar-expand-md top-nav ">
             <div class="container">
-                <a class="navbar-brand" href="{{ path('home') }}"><strong>Esperluette</strong></a>
+                <a class="navbar-brand" href="{{ path('home') }}"><strong>& Esperluette</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
@@ -54,9 +55,9 @@ Forum
 
         <!-- Blog Entries Column -->
         <div class="col-md-8 my-4" id="tabForum">
-{#            {% if app.user %}#}
+            {% if app.user %}
             <button class="btn btn-info mb-2" type="button" id="toggleForm">Publier</button>
-{#            {% endif %}#}
+            {% endif %}
                     {% for theme in themes %}
             <div class="forumContent" id="tab{{ theme.theme }}">
                 <table class="table table-striped table-bordered">
