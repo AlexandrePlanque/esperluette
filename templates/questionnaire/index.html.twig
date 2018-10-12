@@ -22,102 +22,64 @@
     <!-- NavBar -->
     {% block NavBar %}
     <div class="container">
-    <nav class="navbar navbar-expand-md top-nav ">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><strong>Esperluette</strong></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
-            </button>
+        <nav class="navbar navbar-expand-md top-nav ">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><strong>Esperluette</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./about">Le projet<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Se
-                            connecter</a>
-                    </li>
-                </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./about">Le projet<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#loginModal">Se
+                                connecter</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
     {% endblock NavBar %}
 
     <section>
         <div class="container">
-<form>
+            <form id="addQuest" action="" method="POST">
+                {% for cat in listeCat %}
+                <div class="catForm">
+                    <h3>{{cat.intitule }}</h3>
 
-        {% for cat in listeCat %}
-       
-        <h3>{{cat.intitule }}</h3>
+                    {% for question in cat.question %}
+                        {{ question.intitule }} ?
 
-        {% for question in cat.question %}
-        {{ question.intitule }}
-
-        <div class="form-group">
-                <label for="exampleFormControlSelect1">Example select</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    {% for reponse in question.reponse %}
-                    <option>{{ reponse.intitule }}</option>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <select class="form-control" id={{"quest" ~ question.id }}>
+                                        {% for reponse in question.reponse %}
+                                        <option value={{ reponse.id }}>{{ reponse.intitule }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     {% endfor %}
-                </select>
-              </div>
-        {% endfor %}
-    {% endfor %}
-
-</form>
-
-        
-        {# - L’ÉQUIPE #}
-            <div class="row">
-                <div class="col">
-
                 </div>
-            </div>
-
-        {# - LE TIERS LIEU SOLIDAIRE #}
-        <div class="row">
-                <div class="col">
-
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
                 </div>
-            </div>
-
-        {# - LE RESTAURANT/BAR #}
-        <div class="row">
-                <div class="col">
-
-                </div>
-            </div>
-
-        {# - LES ATELIERS #}
-        <div class="row">
-                <div class="col">
-
-                </div>
-            </div>
-
-        {# - ILS NOUS SOUTIENNENT #}
-        <div class="row">
-                <div class="col">
-                        <p>Ce projet est soutenu par le laboratoire Leris, un laboratoire de recherche-action indépendant de sociologie qui mène depuis deux ans une étude en Occitanie autour de l’aide alimentaire et les circuits courts. (lien vers le rapport de l’étude)
-                        Asso locales (Odette, Oaqadi, Comité de quartier)
-                        Cinéma municipal
-                        Paul (producteur bio du marché du mercredi matin)
-                        Habitants du quartier</p>
-                </div>
-            </div>
-                
-                Texte incomplet…
-
+            </form>
         </div>
     </section>
     <!-- NEWSLETTER -->
@@ -219,6 +181,7 @@
     <script src="{{ asset('build/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('build/js/core.js') }}"></script>
     <script src="{{ asset('build/js/cookiechoices.js') }}"></script>
+    <script src="{{ asset('build/js/add.js') }}"></script>
     <script>document.addEventListener('DOMContentLoaded', function (event) { cookieChoices.showCookieConsentBar('Ce site utilise des cookies pour vous offrir le meilleur service. En poursuivant votre navigation, vous acceptez l’utilisation des cookies.', 'J’accepte', 'En savoir plus', 'http://www.example.com/mentions-legales/'); });</script>
 
     {% endblock js %}

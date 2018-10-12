@@ -28,7 +28,7 @@ class EsperluetteFixtures extends Fixture
 //        $this->user($manager);
 //        $this->forum($manager);
 //        $this->sujet($manager);
-        $this->message($manager);
+        //$this->message($manager);
 
 //        $manager->flush();
     }

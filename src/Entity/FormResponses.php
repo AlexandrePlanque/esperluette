@@ -19,7 +19,7 @@ class FormResponses
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Reponse", mappedBy="formResponses")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Reponse")
      */
     private $reponse;
 
@@ -45,7 +45,6 @@ class FormResponses
     {
         if (!$this->reponse->contains($reponse)) {
             $this->reponse[] = $reponse;
-            $reponse->setFormResponses($this);
         }
 
         return $this;
@@ -55,10 +54,6 @@ class FormResponses
     {
         if ($this->reponse->contains($reponse)) {
             $this->reponse->removeElement($reponse);
-            // set the owning side to null (unless already changed)
-            if ($reponse->getFormResponses() === $this) {
-                $reponse->setFormResponses(null);
-            }
         }
 
         return $this;
