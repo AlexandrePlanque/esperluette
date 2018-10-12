@@ -42,6 +42,7 @@ Forum
 
         <!-- Blog Entries Column -->
         <div class="col-md-8 my-4" id="tabForum">
+            <div class="msgListing">
             {% for message in sujet.messages %}
                 <div class="card mb-2">
                     <div class="card-body">
@@ -52,7 +53,8 @@ Forum
                     </div>
                 </div>
             {% endfor %}
-            <hr>
+            </div>
+            <hr id="endMessage">
             
             <div class="form-group">
   <label for="comment">Réponse :</label>

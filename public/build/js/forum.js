@@ -12,6 +12,7 @@ $(window).on('load', function() {
 });
 
 $(document).ready(function() {    
+    
     //retrait du display none dédié à éviter les affichages non souhaités
 
     $("#tabForum").removeClass("hidden")
