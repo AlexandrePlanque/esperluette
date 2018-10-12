@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{% block title %}Esperluette{% endblock %}</title>
+</head>
+
+{% block stylesheets %}
+<!-- bootstrap Style CSS File -->
+<link rel="stylesheet" href="{{ asset('build/css/bootstrap.min.css') }}">
+<!-- Custom Style CSS File -->
+<link rel="stylesheet" type="text/css" href="{{ asset('build/css/custom-style.css') }}">
+<!-- Font-Awesome Style CSS File -->
+<link rel="stylesheet" type="text/css" href="{{ asset('build/font-awesome/css/font-awesome.min.css') }}">
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="{{ asset('build/js/Chart.js') }}"></script>
+<script src="{{ asset('build/js/addCharts.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<body>
+    <div class="container" id="containerCharts">
+
+    </div>
+<div class="row">
+    <div class="col-3">
+
+
+<canvas id="myChart" width="40" height="40"></canvas>
+<script>
+
+</script>
+</div>
+</div>
+{% block js %}
+<script src="{{ asset('build/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('build/js/core.js') }}"></script>
+<script src="{{ asset('build/js/cookiechoices.js') }}"></script><script>document.addEventListener('DOMContentLoaded', function(event){cookieChoices.showCookieConsentBar('Ce site utilise des cookies pour vous offrir le meilleur service. En poursuivant votre navigation, vous acceptez l’utilisation des cookies.', 'J’accepte', 'En savoir plus', 'http://www.example.com/mentions-legales/');});</script>
+
+{% endblock js %}
+</body>
+{% endblock body %}
+
+</html>
