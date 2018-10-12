@@ -19,3 +19,7 @@
 .aActive {
     background-color:lightgrey!important;
 }
+
+tr{
+    cursor:pointer!important;
+}

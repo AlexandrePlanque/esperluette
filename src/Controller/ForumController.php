@@ -6,6 +6,7 @@ use App\Entity\Sujet;
 use App\Entity\Message;
 use App\Repository\ForumRepository;
 use App\Repository\SujetRepository;
+use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,10 +17,10 @@ class ForumController extends AbstractController
     /**
      * @Route("/forum", name="forum")
      */
-    public function index(ForumRepository $repo, SujetRepository $su)
+    public function index(ForumRepository $repo, SujetRepository $su, MessageRepository $msgs)
     {   
         return $this->render('forum/index.html.twig', [
-            'themes' =>  $repo->findAll(),
+            'themes' =>  $repo->findAll(), 'lastmsg' => $msgs->findOneBy(array(), array("dateCreation" => "DESC"))
         ]);
     }
     
